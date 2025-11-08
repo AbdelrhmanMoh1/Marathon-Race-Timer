@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css"> <title>Race Timer</title>
+</head>
+<body>
+
+    <section class="menu-icon" id="menuIcon">
+        <section class="bars">
+            <span></span>
+            <span></span>
+            <span></span>
+        </section>
+        <span class="menu-label">Menu</span>
+    </section>
+
+    <section class="sidebar" id="sidebar">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="results.html">Results</a></li>
+        </ul>
+    </section>
+
+    <h1>Race Timer</h1> 
+    <section class="timer">00:00:00:00</section>
+
+    <section class="buttons">
+        <button id="startFinishBtn">Start</button>
+        <button id="lapBtn" >Lap</button>
+        <button id="clearBtn">Clear</button>
+        <button id="submitResultBtn">Submit Result</button>
+    </section>
+    
+    <section class="lapsSection">
+        <table id="lapTable">
+            <thead>
+                <tr>
+                    <th>Position</th>
+                    <th>Time</th>
+                </tr>
+            </thead>
+            <tbody>
+                </tbody>
+        </table>
+    </section>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

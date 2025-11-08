@@ -1,0 +1,246 @@
+/* style.css (Final Unified Version) */
+
+/* Reset and base sizing */
+html {
+  font-size: 1rem;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* --- Global Body & Layout --- */
+body {
+  font-family: Arial, sans-serif; 
+  color: #f0f0f0; 
+  background-color: #222222; /* Dark background */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 1rem;
+  min-height: 100vh;
+  text-align: center;
+  line-height: 1.6;
+}
+
+/* --- Menu/Sidebar Styling (CRITICAL FIX) --- */
+.menu-icon {
+  position: fixed; 
+  top: 1.5rem;
+  left: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+.bars span {
+  display: block;
+  height: 0.25rem;
+  width: 1.75rem;
+  background-color: #f0f0f0; 
+  border-radius: 0.125rem;
+  transition: transform 0.3s ease;
+}
+
+.menu-label {
+  font-size: 1.1rem;
+  color: #f0f0f0;
+  font-weight: 600;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 14rem; /* CRITICAL FIX: Set final width immediately */
+  overflow-x: hidden; 
+  background-color: #333;
+  border-right: 0.2rem solid #28aA1A; /* Green accent border */
+  z-index: 999;
+  padding-top: 5rem;
+  
+  /* CRITICAL HIDING METHOD: Translate off-screen */
+  transform: translateX(-100%); 
+  /* Also use visibility to ensure it's not clickable while off-screen */
+  visibility: hidden;
+  /* Only transition the transform property for smooth slide */
+  transition: transform 0.3s ease, visibility 0.3s ease 0.3s; 
+}
+
+/* CRITICAL FIX: When JS adds the .open class, slide it back to 0 (visible) */
+.sidebar.open {
+    transform: translateX(0);
+    visibility: visible;
+    transition: transform 0.3s ease, visibility 0s linear; /* Remove delay when opening */
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: left;
+}
+
+.sidebar ul li a {
+  display: block;
+  padding: 1rem 1.5rem;
+  font-size: 1.1rem;
+  color: #f0f0f0;
+  text-decoration: none;
+  border-bottom: 0.0625rem solid #444;
+  transition: background-color 0.2s;
+}
+
+.sidebar ul li a:hover {
+  background-color: #28aA1A; 
+  color: #000;
+}
+
+/* --- Heading --- */
+h1 {
+  font-size: 3rem;
+  margin: 1.5rem 0 2.5rem;
+  color: #f0f0f0;
+  text-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.5);
+}
+
+/* --- Timer Display (index.html) --- */
+.timer {
+  font-family: 'Consolas', monospace; 
+  font-size: 4rem;
+  font-weight: 700;
+  background-color: #ffffff;
+  border: 0.3rem solid #28aA1A; 
+  border-radius: 1rem;
+  padding: 1rem 2rem;
+  margin-bottom: 2.5rem;
+  min-width: 20rem;
+  letter-spacing: 0.2rem;
+  color: #111;
+  box-shadow: 0 0 1rem rgba(40, 170, 26, 0.5);
+}
+
+/* --- Button Group (index.html) --- */
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem; 
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.buttons ol { 
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    padding: 0;
+}
+
+.buttons button {
+  font-size: 1.4rem; 
+  padding: 1.2rem 2.5rem; 
+  border: none;
+  border-radius: 0.75rem;
+  background-color: #28aA1A; 
+  color: white;
+  cursor: pointer;
+  min-width: 10rem;
+  transition: background-color 0.3s ease, transform 0.1s;
+  font-weight: bold;
+  outline: none;
+  box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.2);
+}
+
+.buttons button:hover {
+  background-color: #1a8f10;
+  transform: translateY(-0.1rem);
+}
+
+.buttons button:active {
+  background-color: #116e0b;
+  transform: translateY(0.1rem);
+}
+
+/* Special button styles */
+#lapBtn {
+    background-color: #2e7d32; 
+}
+#lapBtn:hover {
+    background-color: #1b5e20;
+}
+
+#clearBtn {
+  background-color: #dc3545; 
+  color: white;
+}
+#clearBtn:hover {
+  background-color: #c82333;
+}
+
+/* --- Lap/Results Table (Unified Style for both pages) --- */
+.lapsSection, .resultsSection {
+  width: 100%;
+  max-width: 50rem;
+  margin-top: 2rem;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #ffffff;
+  border: none;
+  font-size: 1.1rem;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+  border-radius: 0.5rem;
+  overflow: hidden; 
+}
+
+th, td {
+  padding: 1rem;
+  border: 0.1rem solid #eee;
+  text-align: center;
+  color: #111;
+}
+
+th {
+  background-color: #28aA1A; /* Green header */
+  color: white;
+  text-transform: uppercase;
+}
+
+tr:nth-child(even) {
+    background-color: #f8f8f8;
+}
+
+tr:hover {
+  background-color: #e6ffec; /* Light green hover */
+}
+
+/* --- Responsive Layout --- */
+@media (max-width: 30rem) {
+  h1 {
+      font-size: 2rem;
+  }
+  .timer {
+    font-size: 3rem;
+    padding: 1rem 0.5rem;
+    min-width: 90%;
+  }
+
+  .buttons button {
+    font-size: 1.2rem;
+    padding: 1rem 1.5rem;
+    min-width: 45%; 
+  }
+
+  th, td {
+    padding: 0.75rem 0.5rem;
+    font-size: 0.9rem;
+  }
+}

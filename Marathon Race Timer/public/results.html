@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Race Results</title>
+  <link rel="stylesheet" href="style.css" /> </head>
+<body>
+  <section class="menu-icon" id="menuIcon">
+    <section class="bars">
+      <span></span>
+      <span></span>
+      <span></span>
+    </section>
+    <span class="menu-label">Menu</span>
+  </section>
+
+
+  <section class="sidebar" id="sidebar">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="results.html">Results</a></li>
+    </ul>
+  </section>
+
+  <h1>Race Results</h1>
+
+  <section class="resultsSection">
+    <table>
+      <thead>
+        <tr>
+          <th>Position</th>
+          <th>Time</th>
+          <th>Submitted</th>
+          <th>Runner/Lap ID</th> 
+        </tr>
+      </thead>
+      <tbody id="resultsTableBody">
+        <tr><td colspan="4">Loading results...</td></tr> </tbody>
+    </table>
+    
+    <div style="display: flex; gap: 1rem; margin-top: 1.5rem; justify-content: center;">
+        <button id="downloadResultsBtn" style="font-size: 1.2rem; padding: 0.8rem 2rem; background-color: #28aA1A; color: white; border: none; border-radius: 0.5rem; cursor: pointer;">Download All Results (CSV)</button>
+        
+        <button id="clearAllResultsBtn" style="font-size: 1.2rem; padding: 0.8rem 2rem; background-color: #dc3545; color: white; border: none; border-radius: 0.5rem; cursor: pointer;">Clear All Local Results</button>
+    </div>
+  </section>
+  
+  <script src="script.js"></script> 
+  
+</body>
+</html>
